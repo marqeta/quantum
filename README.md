@@ -205,6 +205,21 @@ At the heart of Quantum is its Aggregation Engine. Data is ingested by the engin
 
 The Query Engine translates Q syntax to aggregation keys which are then used to look up values from Redis. Other systems such as Report Generators, Data Visualizers and Alerting systems can be built using the Query Engine API. Users can also query the data using the Q command line interface from a terminal console.
 
+<h3>Installation and Setup</h3>
+Quantum requires python3.x and Redis 4.x
+
+Python 3 installation and setup guide, https://realpython.com/installing-python/
+Redis installation and setup guide, https://redis.io/download
+
+1. Clone this repo into quantum folder
+2. cd quantum
+3. python3 setup.py install
+4. cd examples
+4. quantum myagg.yml
+5. q myagg.yml
+6. Q: get ProductId=P1;y=2018;m=4;d=12;
+7. Ctrl-D   (to exit)
+
 
 
 
