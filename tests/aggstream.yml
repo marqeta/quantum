@@ -1,0 +1,23 @@
+aggstream:
+   data_source:
+      type: stream
+      stream_type: sqs
+      queue: https://us-east-2.queue.amazonaws.com/762683880968/divaqueue
+   redis:
+      host: localhost
+      port: 6379
+      db: 10
+   data_type: transaction
+   dimensions:
+      - cust_id
+   time:
+      - year
+      - month
+      - day
+      - hour
+      - min
+   measures:
+      - total_price
+      - qty
+   datetime_field_name: date
+   datetime_field_format: YYYY-mm-dd HH:MM:SS
