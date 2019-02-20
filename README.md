@@ -209,6 +209,7 @@ The Query Engine translates Q syntax to aggregation keys which are then used to 
 Quantum requires python3.x and Redis 4.x
 
 Python 3 installation and setup guide, https://realpython.com/installing-python/
+
 Redis installation and setup guide, https://redis.io/download
 
 1. Clone this repo into quantum folder
