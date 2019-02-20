@@ -19,4 +19,4 @@ myagg:
       - total_price
       - qty
    datetime_field_name: date
-   datetime_field_format: YYYY-mm-dd HH:MM:SS
+   datetime_field_format: YYYY-MM-DDTHH:mm:ss

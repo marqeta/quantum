@@ -15,4 +15,4 @@ myagg:
       - Quantity
       - TotalPrice
    datetime_field_name: DateTime
-   datetime_field_format: YYYY-mm-ddTHH:MM:SSZ
+   datetime_field_format: YYYY-MM-DD HH:mm:ss

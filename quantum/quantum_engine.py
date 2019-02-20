@@ -71,7 +71,11 @@ class QuantumEngine():
 
         input_file = csv.DictReader(csv_file)
         for row in input_file:
-            self.perform_agg(row, cfg)
+            try:
+                self.perform_agg(row, cfg)
+            except Exception as e:
+                logging.error('Failed to parse to row: ' + row + '\n' + str(e))
+
         csv_file.close()
 
     def process_sqs_stream(self, cfg, queue_url):
@@ -89,12 +93,12 @@ class QuantumEngine():
             if 'Messages' in response:
                 message = response['Messages'][0]
                 message_body = message['Body']
-                print('processing: ' + message_body)
+                #print('processing: ' + message_body)
                 try:
                     fact_data = json.loads(message_body)
                     self.perform_agg(fact_data, cfg)
-                except:
-                    logging.info('Failed to parse to JSON: ' + message_body)
+                except Exception as e:
+                    logging.error('Failed to parse to JSON: ' + message_body + '\n' + str(e))
                 receipt_handle = message['ReceiptHandle']
                 client.delete_message(QueueUrl=queue_url, ReceiptHandle=receipt_handle)
 

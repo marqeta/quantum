@@ -23,14 +23,14 @@ class QuantumEngineStreamTest(unittest.TestCase):
         self.quantum_engine.run()
 
         fact_data = [{
-            'date': '2018-04-11T22:41:33Z',
+            'date': '2018-04-11T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P1',
             'total_price': 30.0,
             'qty': 10
         },
         {
-            'date': '2018-04-12T22:41:33Z',
+            'date': '2018-04-12T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P2',
             'total_price': 40.0,
@@ -40,7 +40,7 @@ class QuantumEngineStreamTest(unittest.TestCase):
         client = boto3.client('sqs')
         for fd in fact_data:
             response = client.send_message(
-                QueueUrl='https://us-east-2.queue.amazonaws.com/762683880968/divaqueue',
+                QueueUrl='https://sqs.us-east-2.amazonaws.com/762683880968/divaqueue-unittest',
                 MessageBody=json.dumps(fd)
             )
 

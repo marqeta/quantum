@@ -20,13 +20,13 @@ class AggEngineTest(unittest.TestCase):
     def testAggEngine_1(self):
         fact_data_type = 'trans'
         fact_data = {
-            'date': '2018-04-11T22:41:33Z',
+            'date': '2018-04-11T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P1',
             'total_price': 30.0,
             'qty': 10
         }
-        fact_data = self.agg_engine.add_time_dimensions(fact_data, 'date', 'YYYY-mm-ddTHH:MM:SSZ')
+        fact_data = self.agg_engine.add_time_dimensions(fact_data, 'date', 'YYYY-MM-DDTHH:mm:ss')
         self.perform_agg(fact_data_type, fact_data)
 
         keys = self.agg_engine.get_agg_keys('*')
@@ -80,13 +80,13 @@ class AggEngineTest(unittest.TestCase):
         self.assertTrue(value['count'] == 1.0)
 
         fact_data_2 = {
-            'date': '2018-04-12T22:41:33Z',
+            'date': '2018-04-12T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P2',
             'total_price': 40.0,
             'qty': 5
         }
-        fact_data_2 = self.agg_engine.add_time_dimensions(fact_data_2, 'date', 'YYYY-mm-ddTHH:MM:SSZ')
+        fact_data_2 = self.agg_engine.add_time_dimensions(fact_data_2, 'date', 'YYYY-MM-DDTHH:mm:ss')
         self.perform_agg(fact_data_type, fact_data_2)
         keys = self.agg_engine.get_agg_keys('*')
         self.assertTrue(keys[0] == '/qtname:test/dt:trans/cust_id:C1')
@@ -165,23 +165,23 @@ class AggEngineTest(unittest.TestCase):
     def testAggEngine_2(self):
         fact_data_type = 'trans'
         fact_data = {
-            'date': '2018-04-11T22:41:33Z',
+            'date': '2018-04-11T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P1',
             'total_price': 30.0,
             'qty': 10
         }
-        fact_data = self.agg_engine.add_time_dimensions(fact_data, 'date', 'YYYY-mm-ddTHH:MM:SSZ')
+        fact_data = self.agg_engine.add_time_dimensions(fact_data, 'date', 'YYYY-MM-DDTHH:mm:ss')
         self.perform_agg(fact_data_type, fact_data)
 
         fact_data_2 = {
-            'date': '2018-04-12T22:41:33Z',
+            'date': '2018-04-12T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P2',
             'total_price': 40.0,
             'qty': 5
         }
-        fact_data_2 = self.agg_engine.add_time_dimensions(fact_data_2, 'date', 'YYYY-mm-ddTHH:MM:SSZ')
+        fact_data_2 = self.agg_engine.add_time_dimensions(fact_data_2, 'date', 'YYYY-MM-DDTHH:mm:ss')
         self.perform_agg(fact_data_type, fact_data_2)
 
         keys = self.agg_engine.get_agg_keys('*')
@@ -210,23 +210,23 @@ class AggEngineTest(unittest.TestCase):
     def testAggEngine_3(self):
         fact_data_type = 'trans'
         fact_data = {
-            'date': '2018-04-11T22:41:33Z',
+            'date': '2018-04-11T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P1',
             'total_price': 30.0,
             'qty': 10
         }
-        fact_data = self.agg_engine.add_time_dimensions(fact_data, 'date', 'YYYY-mm-ddTHH:MM:SSZ')
+        fact_data = self.agg_engine.add_time_dimensions(fact_data, 'date', 'YYYY-MM-DDTHH:mm:ss')
         self.perform_agg(fact_data_type, fact_data)
 
         fact_data_2 = {
-            'date': '2018-04-12T22:41:33Z',
+            'date': '2018-04-12T22:41:33',
             'cust_id': 'C1',
             'prod_id': 'P2',
             'total_price': 40.0,
             'qty': 5
         }
-        fact_data_2 = self.agg_engine.add_time_dimensions(fact_data_2, 'date', 'YYYY-mm-ddTHH:MM:SSZ')
+        fact_data_2 = self.agg_engine.add_time_dimensions(fact_data_2, 'date', 'YYYY-MM-DDTHH:mm:ss')
         self.perform_agg(fact_data_type, fact_data_2)
 
         keys = self.agg_engine.get_agg_keys('*')

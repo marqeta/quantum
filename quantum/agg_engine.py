@@ -1,6 +1,7 @@
 import datetime
 import logging
 import pickle
+import arrow
 from quantum.qkeys import QKeys
 from redis.exceptions import WatchError
 
@@ -94,8 +95,10 @@ class AggEngine():
         return datetime.date(int(year), int(month), int(day)).weekday()
 
     def add_time_dimensions(self, fact_data, datetime_field_name, date_format):
-        # TODO use date_format
-        tdate = fact_data[datetime_field_name]
+
+        # Normalize date format
+        some_date = arrow.get(fact_data[datetime_field_name], date_format)
+        tdate = some_date.format('YYYY-MM-DD HH:mm:ss')
         fact_data['year']  = tdate[0:4]
         fact_data['month'] = tdate[5:7]
         fact_data['day']   = tdate[8:10]
