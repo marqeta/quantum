@@ -25,6 +25,8 @@ class AggEngine():
                     for measure in measures:
                         sum_measure_key = 'sum_' + measure
                         avg_measure_key = 'avg_' + measure
+                        if fact_data[measure] == '':
+                            fact_data[measure] = '0'
                         new_v[sum_measure_key] = float(fact_data[measure])
                         new_v[avg_measure_key] = float(fact_data[measure])
                     new_v['count'] = 1
@@ -36,6 +38,8 @@ class AggEngine():
                     for measure in measures:
                         sum_measure_key = 'sum_' + measure
                         avg_measure_key = 'avg_' + measure
+                        if fact_data[measure] == '':
+                            fact_data[measure] = '0'
                         new_sum_value = float(v[sum_measure_key]) + float(fact_data[measure])
                         new_avg_value = new_sum_value / new_count_value
                         new_v[sum_measure_key] = float(new_sum_value)
@@ -50,6 +54,7 @@ class AggEngine():
                 #logging.info('retry')
                 continue  #retr  y
             except Exception as e:
+                print (fact_data)
                 logging.error (str(e))
                 break
             finally:
