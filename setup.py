@@ -8,7 +8,7 @@ required=[
 ]
 
 setup(name='quantum',
-      version='1.0.0',
+      version='1.0.1',
       description='Quantum - Fast Time Series Data Aggregation Framework',
       url='http://github.marqeta.com/marqeta/quantum',
       author='Rob Tan',

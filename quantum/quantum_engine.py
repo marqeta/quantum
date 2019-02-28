@@ -11,9 +11,10 @@ from quantum.qkeys import QKeys
 
 class QuantumEngine():
 
-    def __init__(self, config_file_path, hook=None):
+    def __init__(self, config_file_path, override_file_path=None, hook=None):
         self.hook = hook
         self.config_file_path = config_file_path
+        self.override_file_path = override_file_path
         self.streaming = False
 
         with open(self.config_file_path) as stream:
@@ -59,6 +60,8 @@ class QuantumEngine():
 
     def process_csv(self, cfg, data_source):
         path = data_source['path']
+        if self.override_file_path is not None:
+            path = self.override_file_path
         try:
             csv_file = open(path)
         except:
