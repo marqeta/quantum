@@ -4,11 +4,12 @@ required=[
     'requests>=2.14.2',
     'redis>=2.10.5',
     'boto3',
+    'arrow',
     'kinesis-python>=0.1.8'
 ]
 
 setup(name='quantum',
-      version='1.0.1',
+      version='1.0.2',
       description='Quantum - Fast Time Series Data Aggregation Framework',
       url='http://github.marqeta.com/marqeta/quantum',
       author='Rob Tan',
